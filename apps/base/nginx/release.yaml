@@ -11,9 +11,14 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitnami
+      chart: mysql
+      sourceRef:
+         kind: HelmRepository
+         name: bitnami
   interval: 1m0s
-  releaseName: nginx
-  values:
-    extraEnvVars:
-      - name: FOO
-        value: BAR  
+  releases: 
+    - name: nginx
+      chart: bitnami/nginx
+    - name: mysql
+      chart: bitnami/mysql
+      
