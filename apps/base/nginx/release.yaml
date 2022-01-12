@@ -7,7 +7,9 @@ metadata:
 spec:
   chart:
     spec:
-      chart: nginx
+      chart: 
+       - nginx
+       - mysql
       sourceRef:
         kind: HelmRepository
         name: bitnami
