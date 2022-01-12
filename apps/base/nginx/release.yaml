@@ -1,4 +1,4 @@
- ---
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -11,14 +11,10 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: bitnami
-      chart: mysql
-      sourceRef:
-         kind: HelmRepository
-         name: bitnami
   interval: 1m0s
-  releases: 
-    - name: nginx
-      chart: bitnami/nginx
-    - name: mysql
-      chart: bitnami/mysql
+  releaseName: nginx
+  values:
+    extraEnvVars:
+      - name: FOO
+        value: BAR
       
